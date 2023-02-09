@@ -1,6 +1,6 @@
-package learn.service;
+package com.epam.learn.service;
 
-import learn.dto.VehicleSignal;
+import com.epam.learn.dto.VehicleSignal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

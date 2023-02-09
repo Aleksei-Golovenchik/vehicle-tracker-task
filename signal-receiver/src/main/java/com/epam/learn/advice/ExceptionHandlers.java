@@ -1,4 +1,4 @@
-package learn.rest.advice;
+package com.epam.learn.advice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;

@@ -1,4 +1,4 @@
-package learn.dto;
+package com.epam.learn.dto;
 
 import lombok.Data;
 
@@ -11,12 +11,12 @@ import java.math.BigDecimal;
 public class VehicleSignal {
 
     @NotNull
-    @DecimalMax("90")
-    @DecimalMin("-90")
-    BigDecimal latitude;
+    @DecimalMax("1000")
+    @DecimalMin("-1000")
+    private BigDecimal x;
 
     @NotNull
-    @DecimalMax("180")
-    @DecimalMin("-180")
-    BigDecimal longitude;
+    @DecimalMax("1000")
+    @DecimalMin("-1000")
+    private BigDecimal y;
 }

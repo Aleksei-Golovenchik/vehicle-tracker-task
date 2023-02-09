@@ -1,0 +1,8 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    streams:
+      application-id: vehicle-streaming-tracker
+      state-dir: ${STATE_DIR:tmp}
+      publish-distance-topic: output
+      consume-signal-topic: input

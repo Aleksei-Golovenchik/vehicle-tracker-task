@@ -1,7 +1,7 @@
-package learn.controller;
+package com.epam.learn.controller;
 
-import learn.dto.VehicleSignal;
-import learn.service.SignalPublisher;
+import com.epam.learn.dto.VehicleSignal;
+import com.epam.learn.service.SignalPublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
