@@ -2,9 +2,6 @@ package com.epam.learn.service;
 
 import com.epam.learn.dto.SignalDistanceEntry;
 import com.epam.learn.dto.VehicleSignal;
-import com.epam.learn.serde.BigDecimalSerde;
-import com.epam.learn.serde.SignalDistanceEntrySerde;
-import com.epam.learn.serde.VehicleSignalSerde;
 import com.epam.learn.util.SignalUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +20,7 @@ import org.apache.kafka.streams.state.KeyValueStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.config.StreamsBuilderFactoryBean;
+import org.springframework.kafka.support.serializer.JsonSerde;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -39,9 +37,9 @@ public class SignalStreamService {
                         @Value("${spring.kafka.streams.publish-distance-topic:output}") String outputTopic,
                         @Value("${spring.kafka.streams.consume-signal-topic:input}") String inputTopic) {
 
-        final Serde<VehicleSignal> signalSerde = new VehicleSignalSerde();
-        final Serde<SignalDistanceEntry> signalDistanceEntrySerde = new SignalDistanceEntrySerde();
-        final Serde<BigDecimal> bigDecimalSerde = new BigDecimalSerde();
+        final Serde<VehicleSignal> signalSerde = new JsonSerde<>(VehicleSignal.class);
+        final Serde<SignalDistanceEntry> signalDistanceEntrySerde = new JsonSerde<>(SignalDistanceEntry.class);
+        final Serde<BigDecimal> bigDecimalSerde = new JsonSerde<>(BigDecimal.class);
         final Serde<String> stringSerde = Serdes.String();
 
         KStream<String, VehicleSignal> vehicleSignalStream = builder.stream(inputTopic, Consumed.with(stringSerde, signalSerde));
