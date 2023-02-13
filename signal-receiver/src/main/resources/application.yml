@@ -1,9 +1,0 @@
-server:
-  port: 8080
-spring:
-  kafka:
-    bootstrap-servers: localhost:29092
-    producer:
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      publish-signal-topic: input
